@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { login, register } from "../lib/api";
 import type { LoginPayload, RegisterPayload, Role } from "../types";
+import "../styles/auth-card.css";
 
 type Tab = "login" | "register";
 
@@ -32,52 +33,37 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
   }
 
   return (
-    <div className="w-full max-w-[652px] rounded-[24px] bg-card-gray p-6 pb-0">
-      {/* Шапка */}
-      <div className="flex items-center gap-3 px-2 pb-6 pt-2">
-        <div className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full bg-brand-red text-lg font-bold text-white">
-          112
-        </div>
+    <div className="auth-card">
+      <div className="auth-card__header">
+        <div className="auth-card__logo">112</div>
         <div>
-          <h1 className="text-lg font-semibold text-text-dark">
-            112-симулятор
-          </h1>
-          <p className="text-sm text-text-dark/70">
+          <h1 className="auth-card__title">112-симулятор</h1>
+          <p className="auth-card__subtitle">
             Тренажёр оператора экстренных служб
           </p>
         </div>
       </div>
 
-      {/* Табы */}
-      <div className="grid grid-cols-2">
+      <div className="auth-card__tabs">
         <button
           type="button"
           onClick={() => setTab("login")}
-          className={`rounded-t-[24px] py-4 text-sm font-medium transition-colors ${
-            tab === "login"
-              ? "bg-white text-text-dark"
-              : "bg-card-gray text-text-dark/60"
-          }`}
+          className={`auth-card__tab ${tab === "login" ? "auth-card__tab--active" : ""}`}
         >
           Вход
         </button>
         <button
           type="button"
           onClick={() => setTab("register")}
-          className={`rounded-t-[24px] py-4 text-sm font-medium transition-colors ${
-            tab === "register"
-              ? "bg-white text-text-dark"
-              : "bg-card-gray text-text-dark/60"
-          }`}
+          className={`auth-card__tab ${tab === "register" ? "auth-card__tab--active" : ""}`}
         >
           Регистрация
         </button>
       </div>
 
-      {/* Контент */}
-      <div className="rounded-b-[24px] bg-white px-6 py-8">
+      <div className="auth-card__body">
         {tab === "login" && (
-          <form onSubmit={handleLoginSubmit} className="space-y-5">
+          <form onSubmit={handleLoginSubmit} className="auth-form">
             <Field label="Почта">
               <input
                 type="email"
@@ -87,7 +73,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 onChange={(e) =>
                   setLoginData((s) => ({ ...s, email: e.target.value }))
                 }
-                className={inputClasses}
+                className="field__input"
               />
             </Field>
 
@@ -99,18 +85,18 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 onChange={(e) =>
                   setLoginData((s) => ({ ...s, password: e.target.value }))
                 }
-                className={inputClasses}
+                className="field__input"
               />
             </Field>
 
-            <button type="submit" className={submitClasses}>
+            <button type="submit" className="auth-submit">
               Войти
             </button>
           </form>
         )}
 
         {tab === "register" && (
-          <form onSubmit={handleRegisterSubmit} className="space-y-5">
+          <form onSubmit={handleRegisterSubmit} className="auth-form">
             <Field label="Имя">
               <input
                 type="text"
@@ -120,7 +106,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 onChange={(e) =>
                   setRegisterData((s) => ({ ...s, name: e.target.value }))
                 }
-                className={inputClasses}
+                className="field__input"
               />
             </Field>
 
@@ -133,7 +119,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                     role: e.target.value as Role,
                   }))
                 }
-                className={`${inputClasses} appearance-none`}
+                className="field__input field__input--select"
               >
                 <option value="student">Студент</option>
               </select>
@@ -148,7 +134,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 onChange={(e) =>
                   setRegisterData((s) => ({ ...s, email: e.target.value }))
                 }
-                className={inputClasses}
+                className="field__input"
               />
             </Field>
 
@@ -160,11 +146,11 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 onChange={(e) =>
                   setRegisterData((s) => ({ ...s, password: e.target.value }))
                 }
-                className={inputClasses}
+                className="field__input"
               />
             </Field>
 
-            <button type="submit" className={submitClasses}>
+            <button type="submit" className="auth-submit">
               Зарегистрироваться
             </button>
           </form>
@@ -182,17 +168,9 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <label className="block">
-      <span className="mb-1.5 block text-sm font-medium text-label-blue">
-        {label}
-      </span>
+    <label className="field">
+      <span className="field__label">{label}</span>
       {children}
     </label>
   );
 }
-
-const inputClasses =
-  "w-full rounded-xl border-none bg-field-gray px-4 py-3.5 text-sm text-text-dark outline-none transition-colors focus:ring-2 focus:ring-brand-red/30";
-
-const submitClasses =
-  "w-full rounded-xl bg-brand-red py-4 text-sm font-semibold text-white transition-colors hover:bg-[#c11f1f] active:bg-[#a91b1b]";

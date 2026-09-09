@@ -1,5 +1,6 @@
 ---
 import AuthCard from "../components/AuthCard";
+import "../styles/auth-page.css";
 ---
 
 <html lang="ru">
@@ -8,22 +9,12 @@ import AuthCard from "../components/AuthCard";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>112-симулятор — Вход</title>
   </head>
-  <body class="min-h-screen bg-[#0E1423] relative overflow-hidden flex items-center justify-center p-6">
-    <div
-      class="absolute inset-0"
-      style="background: linear-gradient(135deg, #0E1423 32%, #DC2626 100%);"
-    >
-    </div>
+  <body class="auth-page">
+    <div class="auth-page__gradient"></div>
+    <div class="auth-page__grid"></div>
+    <div class="auth-page__circle"></div>
 
-    <div
-      class="absolute inset-0 opacity-[0.07]"
-      style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 80px 80px;"
-    >
-    </div>
-
-    <div class="absolute -left-[220px] -top-[400px] h-[900px] w-[900px] rounded-full border border-white/20"></div>
-
-    <div class="relative z-10">
+    <div class="auth-page__content">
       <AuthCard client:load defaultTab="login" />
     </div>
   </body>
