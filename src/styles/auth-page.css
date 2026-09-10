@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 .auth-page {
   min-height: 100vh;
   position: relative;
@@ -6,13 +8,13 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: #0e1423;
+  background: var(--color-bg-dark);
 }
 
 .auth-page__gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #0e1423 32%, #dc2626 100%);
+  background: linear-gradient(135deg, var(--color-bg-dark) 32%, var(--color-brand-red) 100%);
 }
 
 .auth-page__grid {
@@ -20,8 +22,8 @@
   inset: 0;
   opacity: 0.07;
   background-image:
-    linear-gradient(to right, #ffffff 1px, transparent 1px),
-    linear-gradient(to bottom, #ffffff 1px, transparent 1px);
+    linear-gradient(to right, var(--color-white) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-white) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -32,7 +34,7 @@
   height: 900px;
   width: 900px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(var(--color-white-rgb), 0.2);
 }
 
 .auth-page__content {

@@ -1,0 +1,18 @@
+:root {
+  --color-brand-red: #dc2626;
+  --color-brand-red-hover: #c11f1f;
+  --color-brand-red-active: #a91b1b;
+
+  --color-card-gray: #d0d0d0;
+  --color-field-gray: #f3f3f4;
+
+  --color-text-dark: #141313;
+  --color-text-dark-rgb: 20, 19, 19;
+
+  --color-label-blue: #132353;
+
+  --color-bg-dark: #0e1423;
+
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
+}

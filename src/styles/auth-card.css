@@ -1,8 +1,10 @@
+@import "./variables.css";
+
 .auth-card {
   width: 100%;
   max-width: 652px;
   border-radius: 24px;
-  background: #d0d0d0;
+  background: var(--color-card-gray);
   padding: 24px 24px 0;
 }
 
@@ -21,22 +23,22 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #dc2626;
+  background: var(--color-brand-red);
   font-size: 18px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .auth-card__title {
   font-size: 18px;
   font-weight: 600;
-  color: #141313;
+  color: var(--color-text-dark);
   margin: 0;
 }
 
 .auth-card__subtitle {
   font-size: 14px;
-  color: rgba(20, 19, 19, 0.7);
+  color: rgba(var(--color-text-dark-rgb), 0.7);
   margin: 0;
 }
 
@@ -54,18 +56,18 @@
   font-weight: 500;
   font-family: inherit;
   transition: background-color 0.2s, color 0.2s;
-  background: #d0d0d0;
-  color: rgba(20, 19, 19, 0.6);
+  background: var(--color-card-gray);
+  color: rgba(var(--color-text-dark-rgb), 0.6);
 }
 
 .auth-card__tab--active {
-  background: #ffffff;
-  color: #141313;
+  background: var(--color-white);
+  color: var(--color-text-dark);
 }
 
 .auth-card__body {
   border-radius: 0 0 24px 24px;
-  background: #ffffff;
+  background: var(--color-white);
   padding: 32px 24px;
 }
 
@@ -84,17 +86,17 @@
   margin-bottom: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: #132353;
+  color: var(--color-label-blue);
 }
 
 .field__input {
   width: 100%;
   border: none;
   border-radius: 12px;
-  background: #f3f3f4;
+  background: var(--color-field-gray);
   padding: 14px 16px;
   font-size: 14px;
-  color: #141313;
+  color: var(--color-text-dark);
   outline: none;
   transition: box-shadow 0.2s;
   font-family: inherit;
@@ -114,19 +116,19 @@
   border: none;
   cursor: pointer;
   border-radius: 12px;
-  background: #dc2626;
+  background: var(--color-brand-red);
   padding: 16px;
   font-size: 14px;
   font-weight: 600;
   font-family: inherit;
-  color: #ffffff;
+  color: var(--color-white);
   transition: background-color 0.2s;
 }
 
 .auth-submit:hover {
-  background: #c11f1f;
+  background: var(--color-brand-red-hover);
 }
 
 .auth-submit:active {
-  background: #a91b1b;
+  background: var(--color-brand-red-active);
 }
