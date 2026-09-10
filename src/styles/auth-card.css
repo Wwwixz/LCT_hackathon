@@ -1,11 +1,14 @@
 @import "./variables.css";
 
 .auth-card {
-  width: 100%;
+  width: 652px;
   max-width: 652px;
+  min-height: 510px;
   border-radius: 24px;
   background: var(--color-card-gray);
-  padding: 24px 24px 0;
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 12px 32px rgba(var(--color-text-dark-rgb), 0.08);
 }
 
 .auth-card__header {
@@ -122,13 +125,15 @@
   font-weight: 600;
   font-family: inherit;
   color: var(--color-white);
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .auth-submit:hover {
   background: var(--color-brand-red-hover);
+  transform: translateY(-1px);
 }
 
 .auth-submit:active {
   background: var(--color-brand-red-active);
+  transform: translateY(0);
 }
