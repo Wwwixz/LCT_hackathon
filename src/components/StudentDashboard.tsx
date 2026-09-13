@@ -5,6 +5,7 @@ import crashIcon from "../assets/scenarios/crash.png";
 import suspiciousIcon from "../assets/scenarios/suspicious.png";
 import warningIcon from "../assets/icons/warning.png";
 import moonIcon from "../assets/icons/moon.png";
+import ActiveCallModal from "./ActiveCallModal";
 
 type Difficulty = "ЛЁГКИЙ" | "СРЕДНИЙ" | "СЛОЖНЫЙ";
 
@@ -49,6 +50,8 @@ export default function StudentDashboard() {
   const [address, setAddress] = useState("ул.Ленина дом 12");
   const [incidentType, setIncidentType] = useState("Пожар");
   const [victims, setVictims] = useState("0");
+
+  const activeScenario = scenarios.find((s) => s.id === selectedScenario);
 
   return (
     <div className="dashboard">
@@ -197,6 +200,16 @@ export default function StudentDashboard() {
           </div>
         </section>
       </div>
+
+      {activeScenario && (
+        <ActiveCallModal
+          scenario={{
+            title: activeScenario.title,
+            difficulty: activeScenario.difficulty,
+          }}
+          onClose={() => setSelectedScenario(null)}
+        />
+      )}
     </div>
   );
 }
