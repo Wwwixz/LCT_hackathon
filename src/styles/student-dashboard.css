@@ -1,4 +1,5 @@
 @import "./variables.css";
+@import "./fields.css";
 
 .dashboard {
   width: 1920px;
