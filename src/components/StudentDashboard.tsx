@@ -14,7 +14,6 @@ interface Scenario {
   difficulty: Difficulty;
   title: string;
   timeLimitSec: number;
-  tall?: boolean;
 }
 
 const scenarios: Scenario[] = [
@@ -38,7 +37,6 @@ const scenarios: Scenario[] = [
     difficulty: "СРЕДНИЙ",
     title: "Подозрительная активность во дворе",
     timeLimitSec: 320,
-    tall: true,
   },
 ];
 
@@ -93,7 +91,7 @@ export default function StudentDashboard() {
                   key={s.id}
                   type="button"
                   onClick={() => setSelectedScenario(s.id)}
-                  className={`scenario-card ${s.tall ? "scenario-card--tall" : ""} ${
+                  className={`scenario-card ${
                     selectedScenario === s.id ? "scenario-card--selected" : ""
                   }`}
                 >
@@ -135,7 +133,7 @@ export default function StudentDashboard() {
         </div>
 
         <section className="panel dashboard__col-right call-card">
-          <h2 className="panel__title" style={{ padding: 0, marginBottom: 0 }}>
+          <h2 className="panel__title" style={{ padding: 0 }}>
             Карточка вызова
           </h2>
 
