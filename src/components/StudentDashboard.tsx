@@ -110,7 +110,7 @@ export default function StudentDashboard() {
                   </div>
                   <p className="scenario-card__title">{s.title}</p>
                   <p className="scenario-card__limit">
-                    Лимит времени:{s.timeLimitSec}с
+                    Лимит времени: {s.timeLimitSec}с
                   </p>
                 </button>
               ))}

@@ -18,7 +18,7 @@ interface ActiveCallModalProps {
 }
 
 // Высоты полосок волны — статичный узор, чтобы не пересчитывать на каждый рендер
-const WAVEFORM_HEIGHTS = Array.from({ length: 90 }, (_, i) =>
+const WAVEFORM_HEIGHTS = Array.from({ length: 160 }, (_, i) =>
   8 + Math.round(Math.abs(Math.sin(i * 0.7)) * 42),
 );
 

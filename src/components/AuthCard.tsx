@@ -24,12 +24,18 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
 
   async function handleLoginSubmit(e: FormEvent) {
     e.preventDefault();
-    await login(loginData);
+    const result = await login(loginData);
+    if (result.success) {
+      window.location.assign("/student");
+    }
   }
 
   async function handleRegisterSubmit(e: FormEvent) {
     e.preventDefault();
-    await register(registerData);
+    const result = await register(registerData);
+    if (result.success) {
+      window.location.assign("/student");
+    }
   }
 
   return (
@@ -101,7 +107,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
               <input
                 type="text"
                 required
-                placeholder="student@ya.ru"
+                placeholder="Иван Иванов"
                 value={registerData.name}
                 onChange={(e) =>
                   setRegisterData((s) => ({ ...s, name: e.target.value }))
@@ -122,6 +128,8 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 className="field__input field__input--select"
               >
                 <option value="student">Студент</option>
+                <option value="operator">Оператор</option>
+                <option value="admin">Администратор</option>
               </select>
             </Field>
 
