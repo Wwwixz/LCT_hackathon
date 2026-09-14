@@ -7,7 +7,7 @@
 .field__label {
   display: block;
   margin-bottom: 6px;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--color-label-blue);
 }
@@ -18,7 +18,7 @@
   border-radius: 12px;
   background: var(--color-field-gray);
   padding: 14px 16px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-text-dark);
   outline: none;
   transition: box-shadow 0.2s;
@@ -32,4 +32,31 @@
 
 .field__input--select {
   appearance: none;
+}
+
+/* Убираем стандартную стрелку браузера */
+.field__input--select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 48px;   /* место под стрелку */
+}
+
+/* Контейнер для стрелки */
+.field:has(.field__input--select) {
+  position: relative;
+}
+
+/* Рисуем стрелку через ::after */
+.field:has(.field__input--select)::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  bottom: 22px;             /* подгоняется под высоту поля */
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #141313;
+  border-bottom: 2px solid #141313;
+  transform: rotate(45deg);
+  pointer-events: none;     /* клик проходит сквозь стрелку в select */
 }

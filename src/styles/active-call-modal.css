@@ -2,20 +2,18 @@
 @import "./fields.css";
 
 .call-modal-overlay {
-  position: absolute;
-  left: 0;
-  top: 154px;
-  width: 1920px;
-  height: 926px;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(20, 19, 19, 0.5);
   backdrop-filter: blur(12px);
   z-index: 100;
 }
 
 .call-modal {
-  position: absolute;
-  left: 574px;
-  top: 46px;
+  position: relative;
   width: 811px;
   height: 825px;
   background: var(--color-white);
@@ -110,9 +108,8 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 2px;
-  padding: 0 32px;
   background: var(--color-white);
   border-bottom: 1px solid #f0f0f0;
 }
@@ -120,7 +117,7 @@
 .call-modal__bar {
   width: 3px;
   border-radius: 2px;
-  background: #f3a9a9;
+  background: var(--color-brand-red);
   flex-shrink: 0;
 }
 

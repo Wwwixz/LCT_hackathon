@@ -1,6 +1,5 @@
 // Роли пользователей в системе.
-// TODO: добавить 'operator' и 'admin' когда появятся соответствующие экраны
-export type Role = "student";
+export type Role = "student" | "operator" | "admin";
 
 // Контракт запроса на /auth/login — согласовать с бэкендом перед интеграцией
 export interface LoginPayload {
