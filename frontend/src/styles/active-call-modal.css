@@ -1,20 +1,24 @@
 @import "./variables.css";
 @import "./fields.css";
 
+/* Затемнение — только область под шапкой (154px), в координатах документа,
+   чтобы при прокрутке не открывалось незатемнённое содержимое над линией */
 .call-modal-overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 154px;
+  height: calc(100% - 154px);
   background: rgba(20, 19, 19, 0.5);
   backdrop-filter: blur(12px);
   z-index: 100;
 }
 
 .call-modal {
-  position: relative;
-  width: 811px;
+  position: absolute;
+  left: 574px;
+  top: 47px;
+  width: 810px;
   height: 825px;
   background: var(--color-white);
   border-radius: 24px;
@@ -27,29 +31,28 @@
 /* Шапка */
 .call-modal__header {
   position: relative;
-  height: 153px;
+  height: 150px;
   flex-shrink: 0;
   background: var(--color-label-blue);
-  padding: 24px 32px;
+  padding: 0 23px 0 24px;
   box-sizing: border-box;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
 .call-modal__title-row {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 58px;
 }
 
 .call-modal__live-dot {
-  width: 19px;
-  height: 19px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: var(--color-brand-red);
   flex-shrink: 0;
-  margin-top: 4px;
   animation: call-modal-pulse 1.4s ease-in-out infinite;
 }
 
@@ -63,34 +66,36 @@
 }
 
 .call-modal__title {
-  margin: 0 0 4px;
-  font-size: 20px;
+  margin: 0 0 2px;
+  font-size: 28px;
+  line-height: 34px;
   font-weight: 700;
   color: var(--color-white);
 }
 
 .call-modal__status {
   margin: 0;
-  font-size: 14px;
+  font-size: 22px;
+  line-height: 26px;
   color: rgba(255, 255, 255, 0.75);
 }
 
 .call-modal__meta {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 44px;
 }
 
 .call-modal__difficulty {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   letter-spacing: 0.5px;
-  color: var(--color-white);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .call-modal__expand {
-  width: 46px;
-  height: 46px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
   background: var(--color-brand-red);
@@ -99,25 +104,24 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Аудио-волна */
 .call-modal__waveform {
   height: 100px;
+  margin-top: 2px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2px;
   background: var(--color-white);
-  border-bottom: 1px solid #f0f0f0;
 }
 
 .call-modal__bar {
-  width: 3px;
-  border-radius: 2px;
-  background: var(--color-brand-red);
+  width: 2px;
+  border-radius: 1px;
+  background: #ed9292;
   flex-shrink: 0;
 }
 
@@ -125,33 +129,38 @@
 .call-modal__chat {
   flex: 1;
   overflow-y: auto;
-  padding: 24px 32px;
+  padding: 32px 35px 0 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 .call-modal__bubble {
-  max-width: 60%;
+  max-width: 70%;
   border-radius: 16px;
-  padding: 14px 18px;
+  padding: 24px 25px;
+  box-sizing: border-box;
 }
 
 .call-modal__bubble--victim {
   align-self: flex-start;
-  background: var(--color-field-gray);
+  background: #bebebe;
+  min-width: 348px;
+  text-align: right;
 }
 
 .call-modal__bubble--operator {
   align-self: flex-end;
   background: var(--color-brand-red);
+  min-width: 381px;
 }
 
 .call-modal__bubble-label {
   display: block;
   margin: 0 0 4px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
   color: var(--color-label-blue);
 }
 
@@ -161,9 +170,10 @@
 
 .call-modal__bubble-text {
   margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-text-dark);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-label-blue);
 }
 
 .call-modal__bubble--operator .call-modal__bubble-text {
@@ -177,63 +187,75 @@
   background: var(--color-field-gray);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 0 32px;
   box-sizing: border-box;
 }
 
 .call-modal__input {
   flex: 1;
+  min-width: 0;
   height: 56px;
-  border-radius: 11.5px;
+  border-radius: 12px;
   border: 1px solid var(--color-brand-red);
   background: var(--color-white);
-  padding: 0 18px;
-  font-size: 14px;
+  padding: 0 20px;
+  font-size: 20px;
   color: var(--color-text-dark);
   outline: none;
   font-family: inherit;
   box-sizing: border-box;
 }
 
+.call-modal__input::placeholder {
+  color: rgba(var(--color-text-dark-rgb), 0.45);
+}
+
 .call-modal__mic {
-  width: 55px;
+  width: 50px;
   height: 56px;
   flex-shrink: 0;
-  border-radius: 23.5px;
+  border-radius: 25px;
   border: 1px solid var(--color-brand-red);
   background: var(--color-white);
-  color: var(--color-brand-red);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
+  padding: 0;
+}
+
+.call-modal__mic svg {
+  display: block;
+}
+
+.call-modal__expand svg {
+  display: block;
 }
 
 .call-modal__send {
-  height: 57px;
-  padding: 0 24px;
+  width: 220px;
+  height: 56px;
   flex-shrink: 0;
   border-radius: 12px;
   border: none;
   background: var(--color-brand-red);
   color: var(--color-white);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
 }
 
 .call-modal__end {
-  height: 57px;
-  padding: 0 24px;
+  width: 220px;
+  height: 56px;
   flex-shrink: 0;
   border-radius: 12px;
   border: none;
   background: var(--color-label-blue);
   color: var(--color-white);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;

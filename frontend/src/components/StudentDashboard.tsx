@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../styles/student-dashboard.css";
-import fireIcon from "../assets/scenarios/fire.png";
-import crashIcon from "../assets/scenarios/crash.png";
-import suspiciousIcon from "../assets/scenarios/suspicious.png";
+import fireIcon from "../assets/scenarios/fire-card.png";
+import crashIcon from "../assets/scenarios/crash-card.png";
+import suspiciousIcon from "../assets/scenarios/suspicious-card.png";
 import warningIcon from "../assets/icons/warning.png";
 import moonIcon from "../assets/icons/moon.png";
 import ActiveCallModal from "./ActiveCallModal";

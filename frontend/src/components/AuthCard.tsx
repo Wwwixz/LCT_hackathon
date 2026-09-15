@@ -95,7 +95,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
               />
             </Field>
 
-            <button type="submit" className="auth-submit">
+            <button type="submit" className="auth-submit auth-submit--login">
               Войти
             </button>
           </form>
