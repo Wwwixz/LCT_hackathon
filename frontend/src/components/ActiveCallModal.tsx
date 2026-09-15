@@ -62,7 +62,22 @@ export default function ActiveCallModal({
               className="call-modal__expand"
               aria-label="Развернуть"
             >
-              ⤢
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path d="M12.5 3.5H16.5V7.5Z" fill="white" />
+                <path d="M3.5 12.5V16.5H7.5Z" fill="white" />
+                <path
+                  d="M4.8 15.2L15.2 4.8"
+                  stroke="white"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -106,7 +121,22 @@ export default function ActiveCallModal({
             className="call-modal__mic"
             aria-label="Голосовой ввод"
           >
-            🎤
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#141313"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <path d="M12 2.6C9.8 2.6 8.2 4.6 8.2 7.1C8.2 10.2 9.9 12.5 12 13.1C14.1 12.5 15.8 10.2 15.8 7.1C15.8 4.6 14.2 2.6 12 2.6Z" />
+              <path d="M10.7 4.2V10.6" />
+              <path d="M13.3 4.2V10.6" />
+              <path d="M6.4 9.4V12C6.4 14.8 9 16.4 12 16.4C15 16.4 17.6 14.8 17.6 12V9.4" />
+              <path d="M12 16.4V20.4" />
+            </svg>
           </button>
           <button type="submit" className="call-modal__send">
             Отправить

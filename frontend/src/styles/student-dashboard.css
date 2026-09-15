@@ -10,12 +10,12 @@
   font-family: inherit;
 }
 
-/* Шапка: Frame 11 — Fixed 1920 x Hug(154), padding 24/48/24/48, border-bottom 1px */
+/* Шапка: 1920 x 154, логотип (48,27), действия прижаты к x1280/Выйти до 1764 */
 .dashboard__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 48px;
+  padding: 26px 156px 27px 48px;
   border-bottom: 1px solid #bebebe;
   box-sizing: border-box;
 }
@@ -23,7 +23,7 @@
 .dashboard__profile {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .dashboard__logo {
@@ -36,20 +36,22 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 38px;
   flex-shrink: 0;
 }
 
 .dashboard__name {
   margin: 0;
   font-size: 24px;
-  font-weight: 600;
+  line-height: 29px;
+  font-weight: 700;
   color: var(--color-text-dark);
 }
 
 .dashboard__role {
-  margin: 0;
+  margin: 12px 0 0;
   font-size: 24px;
+  line-height: 24px;
   color: var(--color-text-dark);
   opacity: 0.7;
 }
@@ -57,17 +59,17 @@
 .dashboard__actions {
   display: flex;
   align-items: center;
-  gap: 102px;
+  gap: 130px;
 }
 
 .dashboard__shift-btn {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 286px;
-  height: 66px;
-  border-radius: 12px;
-  border: 1px solid var(--color-text-dark);
+  width: 285px;
+  height: 65px;
+  border-radius: 11.5px;
+  border: 1px solid #bebebe;
   padding: 10px;
   background: var(--color-white);
   justify-content: center;
@@ -85,7 +87,7 @@
 }
 
 .dashboard__shift-icon {
-  width: 82px;
+  width: 40px;
   height: 40px;
   object-fit: contain;
 }
@@ -109,7 +111,7 @@
 }
 
 .dashboard__col-left {
-  width: 1010px;
+  width: 989px;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -128,24 +130,24 @@
 .panel__title {
   padding: 24px 24px 0;
   font-size: 24px;
+  line-height: 29px;
   font-weight: 600;
   color: var(--color-text-dark);
 }
 
-/* Frame 14 (карточка сценария): Fill(464.5) x Hug, radius 24, border 0.5 #BEBEBE, padding 24, gap 12 */
+/* Frame 14 (карточка сценария): 464 x ~232, картинка во всю ширину сверху */
 .scenario-grid {
   display: grid;
   grid-template-columns: repeat(2, 464.5px);
-  gap: 24px;
-  padding: 24px;
+  gap: 12.5px;
+  padding: 18px 24px 24px;
 }
 
 .scenario-card {
   width: 464.5px;
-  min-height: 232px;
   border-radius: 24px;
   border: 0.5px solid #bebebe;
-  padding: 20px;
+  padding: 0;
   box-sizing: border-box;
   background: none;
   text-align: left;
@@ -153,7 +155,14 @@
   font-family: inherit;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-2px);
+  border-color: #d9d9d9;
+  box-shadow: 0 8px 24px rgba(20, 19, 19, 0.08);
 }
 
 .scenario-card--selected {
@@ -162,35 +171,47 @@
 }
 
 .scenario-card__top {
+  position: relative;
+  height: 140px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #f7f7f8 0%, #ececee 100%);
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
 .scenario-card__icon {
-  width: 230px;
-  height: 119px;
+  height: 124px;
+  width: auto;
   object-fit: contain;
 }
 
 .scenario-card__difficulty {
-  font-size: 20px;
-  font-weight: 400;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.5px;
   color: rgba(20, 19, 19, 0.55);
   white-space: nowrap;
 }
 
 .scenario-card__title {
-  margin: 0;
+  margin: 14px 20px 0;
   font-size: 24px;
+  line-height: 29px;
   font-weight: 600;
   color: var(--color-text-dark);
 }
 
 .scenario-card__limit {
-  margin: 0;
+  margin: 6px 20px 16px;
   font-size: 20px;
+  line-height: 24px;
   color: rgba(20, 19, 19, 0.5);
 }
 
@@ -212,12 +233,12 @@
 .info-banner__left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .info-banner__icon {
-  width: 230px;
-  height: 119px;
+  width: 141px;
+  height: 148px;
   object-fit: contain;
 }
 
@@ -279,20 +300,24 @@
 .call-card__map {
   position: relative;
   width: 100%;
-  height: 390px;
+  height: 295px;
+  margin-top: 33px;
   background: #d9d9d9;
-  border-radius: 12px;
+  border-radius: 24px;
 }
 
 .call-card__badge {
   position: absolute;
-  left: 24px;
-  bottom: 24px;
+  left: 18px;
+  bottom: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  min-width: 142px;
   height: 46px;
   padding: 0 20px;
+  box-sizing: border-box;
   border-radius: 23px;
   background: var(--color-white);
   font-size: 14px;
@@ -308,14 +333,20 @@
 }
 
 .call-card__fields {
+  margin-top: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
+}
+
+.call-card .field__label {
+  line-height: 24px;
+  margin-bottom: 6px;
 }
 
 .call-card__row {
   display: flex;
-  gap: 11px;
+  gap: 24px;
 }
 
 .call-card__row .field {
@@ -329,7 +360,7 @@
 .call-card__submit {
   width: 100%;
   height: 73px;
-  margin-top: 24px;
+  margin-top: 28px;
   border: none;
   border-radius: 12px;
   background: var(--color-brand-red);

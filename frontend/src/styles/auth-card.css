@@ -1,0 +1,142 @@
+@import "./variables.css";
+@import "./fields.css";
+
+.auth-card {
+  width: 652px;
+  max-width: 652px;
+  border-radius: 24px;
+  background: var(--color-card-gray);
+  box-sizing: border-box;
+  box-shadow: 0 12px 32px rgba(var(--color-text-dark-rgb), 0.08);
+  overflow: hidden;
+}
+
+/* Шапка: логотип 100px, текст прижат к низу логотипа, как в макете */
+.auth-card__header {
+  display: flex;
+  align-items: flex-end;
+  gap: 19px;
+  padding: 23px 24px 50px 23px;
+}
+
+.auth-card__logo {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-brand-red);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-white);
+  box-sizing: border-box;
+  padding-bottom: 2px;
+}
+
+.auth-card__title {
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 4px;
+}
+
+.auth-card__subtitle {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(var(--color-text-dark-rgb), 0.65);
+  margin: 0;
+}
+
+/* Табы и тело — белый «лист», утопленный в серую карточку на 24px */
+.auth-card__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 24px;
+}
+
+.auth-card__tab {
+  border: none;
+  cursor: pointer;
+  border-radius: 24px 24px 0 0;
+  padding: 0;
+  height: 66px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background-color 0.2s, color 0.2s;
+  background: transparent;
+  color: var(--color-label-blue);
+}
+
+.auth-card__tab--active {
+  background: var(--color-white);
+  color: var(--color-text-dark);
+}
+
+.auth-card__body {
+  background: var(--color-white);
+  margin: 0 24px 24px;
+  border-radius: 0 0 24px 24px;
+  padding: 27px 10px 0;
+  overflow: hidden;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Локальные переопределения полей под размеры макета карточки */
+.auth-card .field__label {
+  margin-bottom: 11px;
+  line-height: 1;
+}
+
+.auth-card .field__input {
+  height: 48px;
+  padding: 0 16px;
+}
+
+.auth-card .field:has(.field__input--select)::after {
+  bottom: 19px;
+}
+
+.auth-card .field__input:user-invalid {
+  box-shadow: none;
+}
+
+.auth-submit {
+  width: calc(100% + 20px);
+  margin: 0 -10px;
+  height: 70px;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  background: var(--color-brand-red);
+  padding: 0;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-white);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* В макете у формы входа увеличенный отступ перед кнопкой */
+.auth-submit--login {
+  margin-top: 17px;
+}
+
+.auth-submit:hover {
+  background: var(--color-brand-red-hover);
+  transform: translateY(-1px);
+}
+
+.auth-submit:active {
+  background: var(--color-brand-red-active);
+  transform: translateY(0);
+}
