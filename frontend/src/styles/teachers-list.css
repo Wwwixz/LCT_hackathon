@@ -1,0 +1,7 @@
+@import "./variables.css";
+@import "./students-list.css";
+
+/* Список преподавателей: красные точки, как в макете */
+.tl-dot--red {
+  background: var(--color-brand-red);
+}

@@ -1,5 +1,5 @@
 // Роли пользователей в системе.
-export type Role = "student" | "operator" | "admin";
+export type Role = "student" | "teacher" | "admin";
 
 // Контракт запроса на /auth/login — согласовать с бэкендом перед интеграцией
 export interface LoginPayload {

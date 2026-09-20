@@ -1,3 +1,4 @@
+import logo112 from "../assets/logo112.png";
 import { useState } from "react";
 import "../styles/student-dashboard.css";
 import fireIcon from "../assets/scenarios/fire-card.png";
@@ -6,6 +7,7 @@ import suspiciousIcon from "../assets/scenarios/suspicious-card.png";
 import warningIcon from "../assets/icons/warning.png";
 import moonIcon from "../assets/icons/moon.png";
 import ActiveCallModal from "./ActiveCallModal";
+import ResultModal from "./ResultModal";
 
 type Difficulty = "ЛЁГКИЙ" | "СРЕДНИЙ" | "СЛОЖНЫЙ";
 
@@ -45,6 +47,7 @@ export default function StudentDashboard() {
   const [selectedScenario, setSelectedScenario] = useState<string | null>(
     null,
   );
+  const [resultOpen, setResultOpen] = useState(false);
   const [nightShift, setNightShift] = useState(false);
   const [callerName, setCallerName] = useState("Стефан Салваторе");
   const [address, setAddress] = useState("ул.Ленина дом 12");
@@ -57,7 +60,11 @@ export default function StudentDashboard() {
     <div className="dashboard">
       <header className="dashboard__header">
         <div className="dashboard__profile">
-          <div className="dashboard__logo">112</div>
+          <div className="dashboard__logo"><img
+          src={logo112.src}
+          alt="112"
+          className="dashboard__logo-img"
+        /></div>
           <div>
             <p className="dashboard__name">Аркад Студентович</p>
             <p className="dashboard__role">Студент</p>
@@ -78,7 +85,11 @@ export default function StudentDashboard() {
             />
             Ночная смена
           </button>
-          <button type="button" className="dashboard__logout">
+          <button
+            type="button"
+            className="dashboard__logout"
+            onClick={() => { window.location.href = "/login"; }}
+          >
             Выйти
           </button>
         </div>
@@ -208,6 +219,17 @@ export default function StudentDashboard() {
             difficulty: activeScenario.difficulty,
           }}
           onClose={() => setSelectedScenario(null)}
+          onFinish={() => {
+            setSelectedScenario(null);
+            setResultOpen(true);
+          }}
+        />
+      )}
+
+      {resultOpen && (
+        <ResultModal
+          onClose={() => setResultOpen(false)}
+          onNewCall={() => setResultOpen(false)}
         />
       )}
     </div>

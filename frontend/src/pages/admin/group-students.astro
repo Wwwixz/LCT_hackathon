@@ -1,0 +1,20 @@
+---
+import StudentsList from "../../components/StudentsList";
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>112-симулятор — Группа ДВ 102</title>
+  </head>
+  <body style="margin: 0; background: #ffffff; overflow-x: auto;">
+    <StudentsList
+      client:load
+      breadcrumb="ДВ 102"
+      view="admin"
+      labelsOnEveryRow
+      students={[{ name: 'Магомед Абдулаев', group: 'ДВ 102 : Анна Крюк', email: 'maga@yandex.ru', score: '26', login: 'anasya' }]}
+    />
+  </body>
+</html>

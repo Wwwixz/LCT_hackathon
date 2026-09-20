@@ -1,0 +1,440 @@
+@import "./variables.css";
+@import "./student-dashboard.css";
+
+/* Шапка преподавателя: PDF-кнопка + Выйти (правое поле 134) */
+.t-header {
+  padding-right: 134px;
+}
+
+.t-actions {
+  gap: 130px;
+}
+
+.t-pdf-btn {
+  width: 288px;
+  height: 65px;
+  border-radius: 11.5px;
+  border: 1px solid #999999;
+  background: var(--color-white);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Тело: колонки 888 / 869 */
+.t-body {
+  display: flex;
+  gap: 59px;
+  padding: 25px 59px 27px 57px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.t-col-left {
+  width: 840px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.t-col-right {
+  width: 913px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Заголовки панелей: без дефолтных margin/padding h2 */
+.t-panel {
+  box-sizing: border-box;
+}
+
+.t-panel .panel__title {
+  padding: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* Студенты группы: 888 x 289 */
+.t-students {
+  height: 289px;
+  padding: 32px 24px 0 30px;
+}
+
+.t-students .panel__title {
+  margin: 0 0 41px;
+}
+
+.t-student-row {
+  display: flex;
+  align-items: center;
+}
+
+.t-num {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(20, 19, 19, 0.35);
+}
+
+.t-student-row .t-num {
+  width: 185px;
+}
+
+.t-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-brand-red);
+  flex-shrink: 0;
+}
+
+.t-student-info {
+  margin-left: 36px;
+}
+
+.t-student-name {
+  margin: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.t-student-sub {
+  margin: 4px 0 0;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--color-text-dark);
+}
+
+.t-score {
+  margin-left: auto;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--color-label-blue);
+}
+
+.t-meta {
+  margin: 32px 0 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(20, 19, 19, 0.45);
+}
+
+.t-meta + .t-meta {
+  margin-top: 22px;
+}
+
+/* Распределение баллов по группе: 888 x 188 */
+.t-distribution {
+  margin-top: 28px;
+  height: 200px;
+  padding: 40px 24px 24px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.t-distribution .panel__title {
+  margin: 0 0 16px;
+}
+
+.t-dist-row {
+  display: flex;
+  align-items: center;
+  margin: auto 0;
+}
+
+.t-dist-name {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(20, 19, 19, 0.35);
+}
+
+/* Слайдер: серый трек на всю ширину, красная пилюля поверх слева */
+.t-slider {
+  position: relative;
+  width: 186px;
+  height: 32px;
+  margin-left: 256px;
+}
+
+.t-slider__rest {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 100%;
+  height: 28px;
+  border-radius: 14px;
+  background: #c4c4c4;
+}
+
+.t-slider__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 72px;
+  height: 32px;
+  border-radius: 16px;
+  background: var(--color-brand-red);
+}
+
+.t-dist-row .t-score {
+  margin-left: auto;
+}
+
+/* Создать группу: 888 x 312 */
+.t-create-group {
+  margin-top: 24px;
+  min-height: 420px;
+  padding: 34px 24px 0 30px;
+}
+
+.t-create-group .panel__title {
+  margin: 0 0 22px;
+}
+
+.t-create-row {
+  display: flex;
+  gap: 10px;
+  margin-right: 44px;
+}
+
+.t-create-row .t-input {
+  border-radius: 16px;
+}
+
+.t-create-row .t-btn-dark {
+  border-radius: 16px;
+}
+
+.t-input {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-field-gray);
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: var(--color-text-dark);
+  outline: none;
+  font-family: inherit;
+}
+
+.t-input::placeholder {
+  color: rgba(20, 19, 19, 0.45);
+}
+
+.t-input--outline {
+  background: var(--color-white);
+  border: 1px solid #cfcfcf;
+}
+
+.t-create-row .t-input {
+  flex: 1;
+  min-width: 0;
+  height: 74px;
+}
+
+.t-create-row .t-btn-dark {
+  width: 217px;
+  height: 74px;
+  flex-shrink: 0;
+}
+
+.t-btn-dark {
+  border: none;
+  border-radius: 12px;
+  background: var(--color-text-dark);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.t-btn-dark:hover {
+  background: #000000;
+}
+
+.t-create-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 17px;
+  margin-right: 44px;
+}
+
+.t-hint {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(20, 19, 19, 0.5);
+}
+
+.t-btn-navy {
+  width: 217px;
+  height: 46px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-label-blue);
+  color: var(--color-white);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.t-group-row {
+  display: flex;
+  align-items: center;
+  margin-top: 17px;
+  padding-left: 24px;
+  padding-right: 17px;
+}
+
+.t-group-row .t-num {
+  width: 160px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.t-group-row .t-student-info {
+  margin-left: 36px;
+}
+
+.t-group-row .t-student-sub {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.t-delete {
+  margin-left: auto;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-brand-red);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Конструктор сценариев: 869 x 599 */
+.t-constructor {
+  height: 655px;
+  padding: 39px 24px 42px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.t-constructor .panel__title {
+  margin: 0 0 21px;
+}
+
+.t-label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-label-blue);
+}
+
+.t-constructor .t-input {
+  margin-bottom: 24px;
+  height: 56px;
+}
+
+.t-selects {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.t-select-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.t-select-wrap .t-input {
+  margin-bottom: 0;
+  padding-right: 48px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.t-select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #141313;
+  border-bottom: 2px solid #141313;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.t-create-scenario {
+  width: 868px;
+  align-self: center;
+  margin-top: auto;
+  flex-shrink: 0;
+  height: 64px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-brand-red);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.t-create-scenario:hover {
+  background: var(--color-brand-red-hover);
+}
+
+/* Мониторинг активной сессии: 869 x 188 */
+.t-monitoring {
+  margin-top: 48px;
+  height: 200px;
+  padding: 40px 24px 40px;
+}
+
+.t-monitoring .panel__title {
+  margin: 0 0 14px;
+}
+
+.t-monitor-row {
+  display: flex;
+  gap: 16px;
+}
+
+.t-monitor-row .t-input {
+  flex: 1;
+  min-width: 0;
+  height: 72px;
+}
+
+.t-monitor-row .t-btn-dark {
+  width: 218px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+/* Кликабельные блоки: студенты группы, распределение, строка группы */
+.t-students--link,
+.t-group-row--link {
+  cursor: pointer;
+}

@@ -1,0 +1,183 @@
+@import "./variables.css";
+@import "./student-dashboard.css";
+@import "./teacher-dashboard.css";
+
+/* Тулбар: стрелка назад, заголовок, поиск + фильтр */
+.stl-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 31px 54px 0 46px;
+}
+
+.stl-back {
+  width: 46px;
+  height: 46px;
+  border: none;
+  background: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.stl-back svg {
+  display: block;
+}
+
+.stl-title {
+  margin: 0 0 0 30px;
+  font-size: 28px;
+  line-height: 33px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.stl-breadcrumb {
+  margin-left: 24px;
+  font-size: 22px;
+  line-height: 26px;
+  color: var(--color-label-blue);
+}
+
+.stl-tools {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.stl-search {
+  position: relative;
+  width: 260px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+}
+
+.stl-search svg {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+}
+
+.stl-search input {
+  width: 100%;
+  height: 66px;
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  background: var(--color-white);
+  padding: 0 16px 0 48px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: var(--color-text-dark);
+  outline: none;
+  font-family: inherit;
+}
+
+.stl-search input::placeholder {
+  color: rgba(20, 19, 19, 0.45);
+}
+
+.stl-filter {
+  width: 76px;
+  height: 66px;
+  border: 1px solid #cfcfcf;
+  border-radius: 14px;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.stl-filter svg {
+  display: block;
+}
+
+/* Список студентов: колонки номера, точки, ФИО, почты, баллов, логина */
+.stl-list {
+  padding: 40px 54px 0 46px;
+}
+
+.stl-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 76px;
+}
+
+.stl-num {
+  width: 112px;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(20, 19, 19, 0.35);
+}
+
+.stl-dot {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: #5b7c99;
+  flex-shrink: 0;
+  margin-right: 31px;
+}
+
+.stl-name {
+  width: 424px;
+}
+
+.stl-name__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.stl-name__sub {
+  margin: 8px 0 0;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-dark);
+}
+
+.stl-col {
+  width: 376px;
+  margin-left: 24px;
+}
+
+.stl-col--score {
+  width: 518px;
+}
+
+.stl-col--login {
+  flex: 1;
+}
+
+.stl-label {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.stl-value {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-dark);
+}
+
+.stl-empty {
+  margin: 0;
+  padding: 20px 8px;
+  font-size: 20px;
+  color: rgba(20, 19, 19, 0.45);
+}
+
+/* Кликабельная строка списка */
+.stl-row--link {
+  cursor: pointer;
+}

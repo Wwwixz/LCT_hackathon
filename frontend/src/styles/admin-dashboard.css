@@ -1,0 +1,253 @@
+@import "./variables.css";
+@import "./student-dashboard.css";
+@import "./teacher-dashboard.css";
+
+/* Шапка администратора: PDF-кнопка + Выйти (правое поле 134), как у преподавателя */
+.a-dashboard .t-header,
+.a-dashboard .dashboard__header {
+  padding-right: 134px;
+}
+
+/* Тело: колонки 841 / 915 */
+.a-body {
+  display: flex;
+  gap: 49px;
+  padding: 34px 52px 27px 63px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.a-col-left {
+  width: 841px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.a-col-right {
+  width: 915px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.a-panel {
+  box-sizing: border-box;
+}
+
+.a-panel .panel__title {
+  padding: 0;
+  margin: 0 0 24px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* Преподаватели: 841 x 280, кликабельная — ведёт на список преподавателей */
+.a-teachers--link {
+  cursor: pointer;
+}
+
+.a-teachers {
+  min-height: 388px;
+  padding: 31px 24px 0 30px;
+}
+
+.a-teachers .panel__title {
+  margin: 0 0 24px;
+}
+
+.a-teacher-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.a-teacher-row .t-num {
+  width: 80px;
+}
+
+.a-teacher-row .t-dot {
+  width: 36px;
+  height: 36px;
+}
+
+.a-teacher-row .t-student-info {
+  margin-left: 138px;
+}
+
+.a-teachers .t-meta {
+  margin: 56px 0 0;
+}
+
+.a-teachers .a-meta-2 {
+  margin-top: 8px;
+}
+
+/* Группы преподавателей */
+.a-groups {
+  margin-top: 76px;
+  min-height: 432px;
+  padding: 31px 24px 0 30px;
+}
+
+.a-groups .panel__title {
+  margin: 0 0 24px;
+}
+
+.a-create-row {
+  margin-right: 0;
+}
+
+.a-create-row .t-input {
+  height: 78px;
+}
+
+.a-create-row .t-btn-dark {
+  width: 218px;
+  height: 78px;
+}
+
+.a-create-bottom {
+  margin-top: 17px;
+  margin-right: 0;
+}
+
+.a-create-bottom .t-btn-navy {
+  height: 56px;
+}
+
+.a-group-row {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding-left: 22px;
+  padding-right: 18px;
+}
+
+.a-group-row .t-num {
+  width: 144px;
+}
+
+.a-group-row .t-student-info,
+.a-group-row .a-group-info {
+  margin-left: 14px;
+}
+
+.a-group-row .t-student-sub {
+  margin-top: 10px;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.a-group-row .t-delete {
+  margin-left: auto;
+  font-size: 24px;
+}
+
+/* Местоположение учебных заведений */
+.a-location {
+  height: 500px;
+  padding: 31px 24px 24px;
+}
+
+.a-location .panel__title {
+  margin: 0 0 24px;
+}
+
+.a-map {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 24px;
+  background: #d9d9d9;
+}
+
+.a-map__badge {
+  position: absolute;
+  left: 18px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-radius: 23px;
+  background: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.a-map__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-brand-red);
+}
+
+.a-create-scenario {
+  width: 100%;
+  margin-top: 16px;
+  height: 76px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-brand-red);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.a-create-scenario:hover {
+  background: var(--color-brand-red-hover);
+}
+
+/* Добавить преподавателя */
+.a-add-teacher {
+  margin-top: 56px;
+  min-height: 340px;
+  padding: 31px 24px 24px;
+}
+
+.a-add-teacher .t-input {
+  margin-bottom: 24px;
+  height: 64px;
+}
+
+.a-add-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.a-add-row .t-input {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.a-btn-add {
+  width: 100%;
+  height: 64px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-text-dark);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.a-btn-add:hover {
+  background: #000000;
+}
+
+/* Кликабельная строка группы */
+.a-group-row--link {
+  cursor: pointer;
+}

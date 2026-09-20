@@ -1,3 +1,4 @@
+import logo112 from "../assets/logo112.png";
 import { useState, type FormEvent } from "react";
 import { login, register } from "../lib/api";
 import type { LoginPayload, RegisterPayload, Role } from "../types";
@@ -8,6 +9,13 @@ type Tab = "login" | "register";
 interface AuthCardProps {
   defaultTab?: Tab;
 }
+
+// Куда вести после регистрации в зависимости от выбранной роли
+const roleRoutes: Record<Role, string> = {
+  student: "/student",
+  teacher: "/teacher",
+  admin: "/admin",
+};
 
 export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
   const [tab, setTab] = useState<Tab>(defaultTab);
@@ -34,14 +42,18 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
     e.preventDefault();
     const result = await register(registerData);
     if (result.success) {
-      window.location.assign("/student");
+      window.location.assign(roleRoutes[registerData.role]);
     }
   }
 
   return (
     <div className="auth-card">
       <div className="auth-card__header">
-        <div className="auth-card__logo">112</div>
+        <div className="auth-card__logo"><img
+              src={logo112.src}
+              alt="112"
+              className="auth-card__logo-img"
+            /></div>
         <div>
           <h1 className="auth-card__title">112-симулятор</h1>
           <p className="auth-card__subtitle">
@@ -87,6 +99,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
               <input
                 type="password"
                 required
+                placeholder="********"
                 value={loginData.password}
                 onChange={(e) =>
                   setLoginData((s) => ({ ...s, password: e.target.value }))
@@ -128,7 +141,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
                 className="field__input field__input--select"
               >
                 <option value="student">Студент</option>
-                <option value="operator">Оператор</option>
+                <option value="teacher">Преподаватель</option>
                 <option value="admin">Администратор</option>
               </select>
             </Field>
@@ -150,6 +163,7 @@ export default function AuthCard({ defaultTab = "login" }: AuthCardProps) {
               <input
                 type="password"
                 required
+                placeholder="********"
                 value={registerData.password}
                 onChange={(e) =>
                   setRegisterData((s) => ({ ...s, password: e.target.value }))

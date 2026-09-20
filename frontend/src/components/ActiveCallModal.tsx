@@ -15,6 +15,7 @@ interface Message {
 interface ActiveCallModalProps {
   scenario: CallModalScenario;
   onClose: () => void;
+  onFinish?: () => void;
 }
 
 // Высоты полосок волны — статичный узор, чтобы не пересчитывать на каждый рендер
@@ -25,6 +26,7 @@ const WAVEFORM_HEIGHTS = Array.from({ length: 160 }, (_, i) =>
 export default function ActiveCallModal({
   scenario,
   onClose,
+  onFinish,
 }: ActiveCallModalProps) {
   const [messages, setMessages] = useState<Message[]>([
     { id: "m1", from: "victim", text: "Горит частный дом" },
@@ -63,19 +65,19 @@ export default function ActiveCallModal({
               aria-label="Развернуть"
             >
               <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
+                width="45"
+                height="45"
+                viewBox="0 0 46 46"
                 fill="none"
                 aria-hidden="true"
               >
-                <path d="M12.5 3.5H16.5V7.5Z" fill="white" />
-                <path d="M3.5 12.5V16.5H7.5Z" fill="white" />
                 <path
-                  d="M4.8 15.2L15.2 4.8"
-                  stroke="white"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
+                  d="M31.9833 9.29586C32.0838 8.75281 31.7251 8.23105 31.1821 8.13049L22.3326 6.49168C21.7895 6.39112 21.2677 6.74983 21.1672 7.29288C21.0666 7.83593 21.4253 8.35768 21.9684 8.45825L29.8346 9.91496L28.3779 17.7812C28.2774 18.3243 28.6361 18.846 29.1791 18.9466C29.7222 19.0472 30.2439 18.6884 30.3445 18.1454L31.9833 9.29586ZM15 20.1138L15.5665 20.9378L31.5665 9.93781L31 9.11377L30.4335 8.28973L14.4335 19.2897L15 20.1138Z"
+                  fill="white"
+                />
+                <path
+                  d="M13.9422 36.6899C13.834 37.2314 14.1853 37.7582 14.7268 37.8665L23.5523 39.6306C24.0938 39.7388 24.6206 39.3875 24.7289 38.846C24.8371 38.3044 24.4858 37.7776 23.9443 37.6693L16.0995 36.1013L17.6675 28.2565C17.7758 27.7149 17.4245 27.1881 16.8829 27.0799C16.3414 26.9716 15.8146 27.3229 15.7063 27.8644L13.9422 36.6899ZM31.0771 26.1138L30.5224 25.2818L14.368 36.0539L14.9228 36.8859L15.4776 37.7179L31.6319 26.9458L31.0771 26.1138Z"
+                  fill="white"
                 />
               </svg>
             </button>
@@ -141,7 +143,11 @@ export default function ActiveCallModal({
           <button type="submit" className="call-modal__send">
             Отправить
           </button>
-          <button type="button" className="call-modal__end" onClick={onClose}>
+          <button
+            type="button"
+            className="call-modal__end"
+            onClick={() => (onFinish ?? onClose)()}
+          >
             Завершить
           </button>
         </form>
